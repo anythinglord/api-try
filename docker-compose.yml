@@ -1,0 +1,36 @@
+version: '2.1'
+services:
+  api-gateway:
+    container_name: api-gateway
+    build: .
+    environment:
+      PORT: '5000'
+      SHOW_URLS: 'true'
+
+      # Register
+      USERS_URL: '34.69.73.192'
+      USERS_PORT: '3002'
+      USERS_ENTRY: 'users'
+      
+      # Servidor LDAP
+      LDAP_URL:  '34.69.73.192'
+      LDAP_PORT: '3002'
+      LDAP_ENTRYA:  'auth'
+      LDAP_ENTRYAa: 'authAdmin'
+      LDAP_ENTRYAd: 'add'
+      LDAP_ENTRYAda: 'addAdmin'
+      LDAP_ENTRYV: 'validate'
+      
+
+      # Services 
+      SERVICES_URL: '34.69.73.192'
+      SERVICES_PORT: '3003'
+      SERVICES_ENTRY: 'services'
+
+      # Alternatives 
+      ALTERNATIVES_URL: '34.69.73.192'
+      ALTERNATIVES_PORT: '3001'
+      ALTERNATIVES_ENTRY: 'alternatives'
+
+    ports:
+      - '5000:5000'
