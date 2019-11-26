@@ -1,16 +1,16 @@
-import { generalRequest, getRequest } from '../../utilities';
-import { url, port, entryPoint } from './Userver';
+import { generalRequest, getRequest } from '../utilities';
+import { url, port, entryPoint } from './Rserver';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 
-const Uresolvers = {
+const Rresolvers = {
 	Query: {
 		getUsers: (_) =>
 			getRequest(URL, ''),
 		userById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
-		userByUsername: (_, { username }) =>
-			getRequest(URL, username),
+		userByEmail: (_, { email }) =>
+			getRequest(URL, email),
 	},
 	Mutation: {
 		createUser: (_, { user }) =>
@@ -22,4 +22,4 @@ const Uresolvers = {
 	}
 };
 
-export default Uresolvers;
+export default Rresolvers;

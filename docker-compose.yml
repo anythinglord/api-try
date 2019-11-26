@@ -20,21 +20,15 @@ services:
       RESERVATIONS_PORT: '3003'
       RESERVATIONS_ENTRY: 'reservations'
       
-      # Login
-      USERS_URL: '172.17.0.1'
-      USERS_PORT: '4000'
+      # Register
+      USERS_URL: '34.69.73.192'
+      USERS_PORT: '3004'
       USERS_ENTRY: 'users'
-      PASSENGERS_URL: '172.17.0.1'
-      PASSENGERS_PORT: '4000'
-      PASSENGERS_ENTRY: 'passengers'
-      CREWS_URL: '172.17.0.1'
-      CREWS_PORT: '4000'
-      CREWS_ENTRY: 'crews'
 
-      # Notifications
-      NOTIFICATIONS_URL: '172.17.0.1'
-      NOTIFICATIONS_PORT: '3002'
-      NOTIFICATIONS_ENTRY: 'notifications'
+      # Services 
+      SERVICES_URL: '34.69.73.192'
+      SERVICES_PORT: '3004'
+      SERVICES_ENTRY: 'services'
       
       # Promociones
       PROMOCIONES_URL: '172.17.0.1'
@@ -45,8 +39,8 @@ services:
       TIENDAS_ENTRY: 'tiendas'
 
       # Servidor LDAP
-      LDAP_URL:  '172.17.0.1'
-      LDAP_PORT: '4000'
+      LDAP_URL:  '34.69.73.192'
+      LDAP_PORT: '3002'
       LDAP_ENTRYA:  'auth'
       LDAP_ENTRYAa: 'authAdmin'
       LDAP_ENTRYAd: 'add'

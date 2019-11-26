@@ -1,26 +1,31 @@
 export const usersTypeDef = `
 type User {
     id: Int!
-    uname: String!
-    surname: String!
+    nameE: String!
     email: String!
+    rol: String!
     passw: String!
+    nit: String!
+}
+type answer{
+    message: String!
 }
 input UserInput {
-    uname: String!
-    surname: String!
+    nameE: String!
     email: String!
+    rol: String!
     passw: String!
+    nit: String!
 }`;
 
 export const usersQueries = `
     getUsers: [User]!
     userById(id: Int!): User!
-    userByUsername(username: String!): User!
+    userByEmail(email: String!): User!
 `;
 
 export const usersMutations = `
     createUser(user: UserInput!): User!
-    deleteUser(id: Int!): Int!
+    deleteUser(id: Int!): answer!
     updateUser(id: Int!, User: UserInput!): User!
 `;

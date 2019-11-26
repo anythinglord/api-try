@@ -25,22 +25,12 @@ import { mergeSchemas } from './utilities';
 		destinationsTypeDef
 	} from './destinations/DtypeDefs';
 
-	// Login
+	// Register
 	import{ 
 		usersMutations,
 		usersQueries,
 		usersTypeDef
-	} from './login/users/UtypeDefs';
-	import{ 
-		crewsMutations,
-		crewsQueries,
-		crewsTypeDef
-	} from './login/crew/CtypeDefs';
-	import{ 
-		passengersMutations,
-		passengersQueries,
-		passengersTypeDef
-	} from './login/passengers/PtypeDefs';
+	} from './register/RtypeDefs';
 
 	//Lddap
 	import {
@@ -63,12 +53,12 @@ import { mergeSchemas } from './utilities';
 		promocionesTypeDef
 	} from './promos/promocion/PMtypeDefs';
 
-	//Notificaciones
+	// Service
 	import{ 
-		notificationsMutations,
-		notificationsQueries,
-		notificationsTypeDef
-	} from './notifications/NtypeDefs';
+		servicesMutations,
+		servicesQueries,
+		servicesTypeDef
+	} from './service/StypeDefs';
 
 // RESOLVERS
 
@@ -79,18 +69,16 @@ import { mergeSchemas } from './utilities';
 	// Destinations
 	import destinationsResolvers from './destinations/Dresolvers';
 
-	// Login
-	import usersResolvers from './login/users/Uresolvers';
-	import crewsResolvers from './login/crew/Cresolvers';
-	import passengersResolvers from './login/passengers/Presolvers';
+	// Register
+	import usersResolvers from './register/Rresolvers';
 
 	// Promociones
 	import promocionesResolvers from './promos/promocion/PMresolvers';
 	import tiendasResolvers from './promos/tienda/Tresolvers';
 
-	// Notifications
-	import notificationsResolvers from './notifications/Nresolvers';
-
+	// service
+	import servicesResolvers from './service/Sresolvers';
+	
 	// ldap
 	import ldResolvers from './ldap/LDresolvers';
 
@@ -100,39 +88,33 @@ const mergedTypeDefs = mergeSchemas(
 		'scalar JSON',
 		eventsTypeDef,
 		destinationsTypeDef,
-		usersTypeDef,
-		crewsTypeDef,
-		passengersTypeDef,
 		promocionesTypeDef,
 		tiendasTypeDef,
 		reservationsTypeDef,
-		notificationsTypeDef,
 		ldTypeDef,
+		usersTypeDef,
+		servicesTypeDef,
 		//ldTypeDef2
 	],
 	[
 		eventsQueries,
 		destinationsQueries,
-		usersQueries,
-		crewsQueries,
-		passengersQueries,
 		promocionesQueries,
 		tiendasQueries,
 		reservationsQueries,
-		notificationsQueries,
-		ldQueries
+		ldQueries,
+		usersQueries,
+		servicesQueries,
 	],
 	[
 		eventsMutations,
 		destinationsMutations,
-		usersMutations,
-		crewsMutations,
-		passengersMutations,
 		promocionesMutations,
 		tiendasMutations,
 		reservationsMutations,
-		notificationsMutations,
-		ldMutations
+		ldMutations,
+		usersMutations,
+		servicesMutations,
 	]
 );
 
@@ -143,13 +125,11 @@ export default makeExecutableSchema({
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		eventsResolvers,
 		destinationsResolvers,
-		usersResolvers,
-		crewsResolvers,
-		passengersResolvers,
 		promocionesResolvers,
 		tiendasResolvers,
 		reservationResolvers,
-		notificationsResolvers,
-		ldResolvers
+		ldResolvers,
+		usersResolvers,
+		servicesResolvers,
 	)
 });
