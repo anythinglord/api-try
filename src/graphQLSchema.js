@@ -18,13 +18,7 @@ import { mergeSchemas } from './utilities';
 		reservationsTypeDef
 	} from './evn/reservations/RtypeDefs';
 
-	// Destinations
-	import {
-		destinationsMutations,
-		destinationsQueries,
-		destinationsTypeDef
-	} from './destinations/DtypeDefs';
-
+	
 	// Register
 	import{ 
 		usersMutations,
@@ -60,14 +54,20 @@ import { mergeSchemas } from './utilities';
 		servicesTypeDef
 	} from './service/StypeDefs';
 
+	// Alternatives 
+	import{ 
+		alternativesMutations,
+		alternativesQueries,
+		alternativesTypeDef
+	} from './alternative/AtypeDefs';
+
 // RESOLVERS
 
 	// Events
 	import eventsResolvers from './evn/events/Eresolvers';
 	import reservationResolvers from './evn/reservations/Rresolvers';
 
-	// Destinations
-	import destinationsResolvers from './destinations/Dresolvers';
+	
 
 	// Register
 	import usersResolvers from './register/Rresolvers';
@@ -81,40 +81,42 @@ import { mergeSchemas } from './utilities';
 	
 	// ldap
 	import ldResolvers from './ldap/LDresolvers';
+	// Alternative 
+	import alternativesResolvers from './alternative/Aresolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
 		eventsTypeDef,
-		destinationsTypeDef,
 		promocionesTypeDef,
 		tiendasTypeDef,
 		reservationsTypeDef,
 		ldTypeDef,
 		usersTypeDef,
 		servicesTypeDef,
+		alternativesTypeDef,
 		//ldTypeDef2
 	],
 	[
 		eventsQueries,
-		destinationsQueries,
 		promocionesQueries,
 		tiendasQueries,
 		reservationsQueries,
 		ldQueries,
 		usersQueries,
 		servicesQueries,
+		alternativesQueries,
 	],
 	[
 		eventsMutations,
-		destinationsMutations,
 		promocionesMutations,
 		tiendasMutations,
 		reservationsMutations,
 		ldMutations,
 		usersMutations,
 		servicesMutations,
+		alternativesMutations,
 	]
 );
 
@@ -124,12 +126,13 @@ export default makeExecutableSchema({
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
 		eventsResolvers,
-		destinationsResolvers,
 		promocionesResolvers,
 		tiendasResolvers,
 		reservationResolvers,
 		ldResolvers,
 		usersResolvers,
 		servicesResolvers,
+		alternativesResolvers,
+
 	)
 });
