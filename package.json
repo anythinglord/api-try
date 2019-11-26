@@ -9,7 +9,7 @@
     "prepublish": "rollup -c",
     "test": "run-s eslint",
     "start": "run-s prepublish runServer",
-    "runServer": "node src/index.js"
+    "runServer": "node lib/index.js"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [

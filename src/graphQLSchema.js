@@ -6,13 +6,42 @@ import { mergeSchemas } from './utilities';
 
 // TYPEDEFS
 
-	// Register
+	// Events
+	import {
+		eventsMutations,
+		eventsQueries,
+		eventsTypeDef
+	} from './evn/events/EtypeDefs';
+	import {
+		reservationsMutations,
+		reservationsQueries,
+		reservationsTypeDef
+	} from './evn/reservations/RtypeDefs';
+
+	// Destinations
+	import {
+		destinationsMutations,
+		destinationsQueries,
+		destinationsTypeDef
+	} from './destinations/DtypeDefs';
+
+	// Login
 	import{ 
 		usersMutations,
 		usersQueries,
 		usersTypeDef
-	} from './register/RtypeDefs';
-	
+	} from './login/users/UtypeDefs';
+	import{ 
+		crewsMutations,
+		crewsQueries,
+		crewsTypeDef
+	} from './login/crew/CtypeDefs';
+	import{ 
+		passengersMutations,
+		passengersQueries,
+		passengersTypeDef
+	} from './login/passengers/PtypeDefs';
+
 	//Lddap
 	import {
 		ldMutations,
@@ -21,56 +50,88 @@ import { mergeSchemas } from './utilities';
 		//ldTypeDef2
 	} from './ldap/LDtypeDefs';
 
-	// Service
+
+	//Promociones
 	import{ 
-		servicesMutations,
-		servicesQueries,
-		servicesTypeDef
-	} from './service/StypeDefs';
-	
-	// Alternatives 
+		tiendasMutations,
+		tiendasQueries,
+		tiendasTypeDef
+	} from './promos/tienda/TtypeDefs';
 	import{ 
-		alternativesMutations,
-		alternativesQueries,
-		alternativesTypeDef
-	} from './alternative/AtypeDefs';
+		promocionesMutations,
+		promocionesQueries,
+		promocionesTypeDef
+	} from './promos/promocion/PMtypeDefs';
+
+	//Notificaciones
+	import{ 
+		notificationsMutations,
+		notificationsQueries,
+		notificationsTypeDef
+	} from './notifications/NtypeDefs';
 
 // RESOLVERS
 
-	
-	// Register
-	import usersResolvers from './register/Rresolvers';
-	
+	// Events
+	import eventsResolvers from './evn/events/Eresolvers';
+	import reservationResolvers from './evn/reservations/Rresolvers';
+
+	// Destinations
+	import destinationsResolvers from './destinations/Dresolvers';
+
+	// Login
+	import usersResolvers from './login/users/Uresolvers';
+	import crewsResolvers from './login/crew/Cresolvers';
+	import passengersResolvers from './login/passengers/Presolvers';
+
+	// Promociones
+	import promocionesResolvers from './promos/promocion/PMresolvers';
+	import tiendasResolvers from './promos/tienda/Tresolvers';
+
+	// Notifications
+	import notificationsResolvers from './notifications/Nresolvers';
+
 	// ldap
 	import ldResolvers from './ldap/LDresolvers';
-	
-	// Service
-	import servicesResolvers from './service/Sresolvers';
-	
-	// Alternative 
-	import alternativesResolvers from './alternative/Aresolvers';
 
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
+		eventsTypeDef,
+		destinationsTypeDef,
 		usersTypeDef,
-		servicesTypeDef,
-		alternativesTypeDef,
+		crewsTypeDef,
+		passengersTypeDef,
+		promocionesTypeDef,
+		tiendasTypeDef,
+		reservationsTypeDef,
+		notificationsTypeDef,
 		ldTypeDef,
-		
+		//ldTypeDef2
 	],
 	[
+		eventsQueries,
+		destinationsQueries,
 		usersQueries,
-		servicesQueries,
-		alternativesQueries,
+		crewsQueries,
+		passengersQueries,
+		promocionesQueries,
+		tiendasQueries,
+		reservationsQueries,
+		notificationsQueries,
 		ldQueries
 	],
 	[
-		
+		eventsMutations,
+		destinationsMutations,
 		usersMutations,
-		servicesMutations,
-		alternativesMutations,
+		crewsMutations,
+		passengersMutations,
+		promocionesMutations,
+		tiendasMutations,
+		reservationsMutations,
+		notificationsMutations,
 		ldMutations
 	]
 );
@@ -80,9 +141,15 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
+		eventsResolvers,
+		destinationsResolvers,
 		usersResolvers,
-		servicesResolvers,
-		alternativesResolvers,
+		crewsResolvers,
+		passengersResolvers,
+		promocionesResolvers,
+		tiendasResolvers,
+		reservationResolvers,
+		notificationsResolvers,
 		ldResolvers
 	)
 });
