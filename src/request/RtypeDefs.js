@@ -6,6 +6,7 @@ type Request {
     id_service: Int!
     title: String!
     body: String!
+    accept: String!
 
 }
 type answer4{
@@ -17,6 +18,7 @@ input RequestInput {
     id_service: Int!
     title: String!
     body: String!
+    accept: String!
 }`;
 
 export const requestsQueries = `
