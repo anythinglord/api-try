@@ -30,13 +30,9 @@ services:
       SERVICES_PORT: '3004'
       SERVICES_ENTRY: 'services'
       
-      # Promociones
-      PROMOCIONES_URL: '172.17.0.1'
-      PROMOCIONES_PORT: '3004'
-      PROMOCIONES_ENTRY: 'promociones'
-      TIENDAS_URL: '172.17.0.1'
-      TIENDAS_PORT: '3004'
-      TIENDAS_ENTRY: 'tiendas'
+      REQUEST_URL: '34.69.73.192'
+      REQUEST_PORT: '3004'
+      REQUEST_ENTRY: 'requests'  
 
       # Servidor LDAP
       LDAP_URL:  '34.69.73.192'

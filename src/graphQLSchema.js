@@ -6,19 +6,6 @@ import { mergeSchemas } from './utilities';
 
 // TYPEDEFS
 
-	// Events
-	import {
-		eventsMutations,
-		eventsQueries,
-		eventsTypeDef
-	} from './evn/events/EtypeDefs';
-	import {
-		reservationsMutations,
-		reservationsQueries,
-		reservationsTypeDef
-	} from './evn/reservations/RtypeDefs';
-
-	
 	// Register
 	import{ 
 		usersMutations,
@@ -34,19 +21,7 @@ import { mergeSchemas } from './utilities';
 		//ldTypeDef2
 	} from './ldap/LDtypeDefs';
 
-
-	//Promociones
-	import{ 
-		tiendasMutations,
-		tiendasQueries,
-		tiendasTypeDef
-	} from './promos/tienda/TtypeDefs';
-	import{ 
-		promocionesMutations,
-		promocionesQueries,
-		promocionesTypeDef
-	} from './promos/promocion/PMtypeDefs';
-
+	
 	// Service
 	import{ 
 		servicesMutations,
@@ -61,20 +36,17 @@ import { mergeSchemas } from './utilities';
 		alternativesTypeDef
 	} from './alternative/AtypeDefs';
 
+	import{ 
+		requestsMutations,
+		requestsQueries,
+		requestsTypeDef
+	} from './request/RtypeDefs';
+
 // RESOLVERS
 
-	// Events
-	import eventsResolvers from './evn/events/Eresolvers';
-	import reservationResolvers from './evn/reservations/Rresolvers';
-
 	
-
 	// Register
 	import usersResolvers from './register/Rresolvers';
-
-	// Promociones
-	import promocionesResolvers from './promos/promocion/PMresolvers';
-	import tiendasResolvers from './promos/tienda/Tresolvers';
 
 	// service
 	import servicesResolvers from './service/Sresolvers';
@@ -84,39 +56,32 @@ import { mergeSchemas } from './utilities';
 	// Alternative 
 	import alternativesResolvers from './alternative/Aresolvers';
 
+	import requestsResolvers from './request/Rresolvers';
+
 // merge the typeDefs
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		eventsTypeDef,
-		promocionesTypeDef,
-		tiendasTypeDef,
-		reservationsTypeDef,
 		ldTypeDef,
 		usersTypeDef,
 		servicesTypeDef,
 		alternativesTypeDef,
+		requestsTypeDef,
 		//ldTypeDef2
 	],
 	[
-		eventsQueries,
-		promocionesQueries,
-		tiendasQueries,
-		reservationsQueries,
 		ldQueries,
 		usersQueries,
 		servicesQueries,
 		alternativesQueries,
+		requestsQueries,
 	],
 	[
-		eventsMutations,
-		promocionesMutations,
-		tiendasMutations,
-		reservationsMutations,
 		ldMutations,
 		usersMutations,
 		servicesMutations,
 		alternativesMutations,
+		requestsMutations,
 	]
 );
 
@@ -125,14 +90,10 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		eventsResolvers,
-		promocionesResolvers,
-		tiendasResolvers,
-		reservationResolvers,
 		ldResolvers,
 		usersResolvers,
 		servicesResolvers,
 		alternativesResolvers,
-
+		requestsResolvers,
 	)
 });
