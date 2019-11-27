@@ -4,8 +4,8 @@ type Request {
     id_user: Int!
     id_owner: Int!
     id_service: Int!
-    title: String
-    body: String
+    title: String!
+    body: String!
 
 }
 type answer4{
@@ -15,8 +15,8 @@ input RequestInput {
     id_user: Int!
     id_owner: Int!
     id_service: Int!
-    title: String
-    body: String
+    title: String!
+    body: String!
 }`;
 
 export const requestsQueries = `
