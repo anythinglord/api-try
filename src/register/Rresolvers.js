@@ -1,8 +1,8 @@
 import { generalRequest, getRequest } from '../utilities';
 import { url, entryPoint, entryPointA } from './Rserver';
 
-const URL = `${url}/${entryPoint}`;
-const URLA = `${url}/${entryPointA}`;
+const URL = `http://${url}:${port}/${entryPoint}`;
+const URLA = `http://${url}:${port}/${entryPointA}`;
 
 const Rresolvers = {
 	Query: {

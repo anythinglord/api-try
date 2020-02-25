@@ -1,7 +1,7 @@
 import { generalRequest, getRequest } from '../utilities';
 import { url, entryPoint } from './Sserver';
 
-const URL = `${url}/${entryPoint}`;
+const URL = `http://${url}:${port}/${entryPoint}`;
 
 const Sresolvers = {
 	Query: {

@@ -1,8 +1,8 @@
 import { generalRequest, getRequest } from '../utilities';
 import { url, entryPoint, savePoint } from './Aserver';
 
-const URL = `${url}/${entryPoint}`;
-const URLSave = `${url}/${savePoint}`;
+const URL = `http://${url}:${port}/${entryPoint}`;
+const URLSave = `http://${url}:${port}/${savePoint}`;
 
 const Aresolvers = {
 	Query: {
