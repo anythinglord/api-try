@@ -10,7 +10,7 @@ services:
       # Alternatives 
       ALTERNATIVES_URL: '34.69.73.192'
       ALTERNATIVES_PORT: '3001'
-      ALTERNATIVES_ENTRY: 'alternatives',
+      ALTERNATIVES_ENTRY: 'alternatives'
       SAVEALTER_ENTRY: 'create'
 
       
@@ -19,7 +19,7 @@ services:
       USERS_PORT: '3002'
       USERS_ENTRY: 'users'
       USERS_ENTRYA: 'auth'
-      
+
       # Services 
       SERVICES_URL: '34.69.73.192'
       SERVICES_PORT: '3004'
