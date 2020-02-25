@@ -1,5 +1,5 @@
 import { generalRequest, getRequest } from '../utilities';
-import { url, entryPoint } from './Rserver';
+import { url, port,entryPoint } from './Rserver';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 

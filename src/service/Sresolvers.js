@@ -1,5 +1,5 @@
 import { generalRequest, getRequest } from '../utilities';
-import { url, entryPoint } from './Sserver';
+import { url, port, entryPoint } from './Sserver';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 

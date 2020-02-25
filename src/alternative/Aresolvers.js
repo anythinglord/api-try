@@ -1,5 +1,5 @@
 import { generalRequest, getRequest } from '../utilities';
-import { url, entryPoint, savePoint } from './Aserver';
+import { url, port, entryPoint, savePoint } from './Aserver';
 
 const URL = `http://${url}:${port}/${entryPoint}`;
 const URLSave = `http://${url}:${port}/${savePoint}`;
