@@ -1,7 +1,8 @@
 import { generalRequest, getRequest } from '../utilities';
-import { url, port, entryPoint } from './Aserver';
+import { url, entryPoint, savePoint } from './Aserver';
 
-const URL = `http://${url}:${port}/${entryPoint}`;
+const URL = `${url}/${entryPoint}`;
+const URLSave = `${url}/${savePoint}`;
 
 const Aresolvers = {
 	Query: {
@@ -11,6 +12,8 @@ const Aresolvers = {
 			generalRequest(`${URL}/${id}`, 'GET'),
 	},
 	Mutation: {
+		saveAlternative:(_, { Alternative }) =>
+			generalRequest(`${URLSave}`, 'POST', Alternative),
 		createAlternative: (_, { Alternative }) =>
 			generalRequest(`${URL}`, 'POST', Alternative),
 		updateAlternative: (_, { id, Alternative }) =>

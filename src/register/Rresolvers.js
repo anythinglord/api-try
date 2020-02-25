@@ -1,7 +1,8 @@
 import { generalRequest, getRequest } from '../utilities';
-import { url, port, entryPoint } from './Rserver';
+import { url, entryPoint, entryPointA } from './Rserver';
 
-const URL = `http://${url}:${port}/${entryPoint}`;
+const URL = `${url}/${entryPoint}`;
+const URLA = `${url}/${entryPointA}`;
 
 const Rresolvers = {
 	Query: {
@@ -13,6 +14,10 @@ const Rresolvers = {
 			getRequest(URL, email),
 	},
 	Mutation: {
+		authUser: async (_, { credentials }) => {
+			let res = await	generalRequest(`${URLA}`, 'POST', credentials);
+			return res
+		},
 		createUser: (_, { user }) =>
 			generalRequest(`${URL}`, 'POST', user),
 		updateUser: (_, { id, user }) =>

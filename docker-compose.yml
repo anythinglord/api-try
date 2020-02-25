@@ -10,21 +10,16 @@ services:
       # Alternatives 
       ALTERNATIVES_URL: '34.69.73.192'
       ALTERNATIVES_PORT: '3001'
-      ALTERNATIVES_ENTRY: 'alternatives'
-      
-      # Eventos
-      EVENTS_URL: '172.17.0.1'
-      EVENTS_PORT: '3003'
-      EVENTS_ENTRY: 'events'
-      RESERVATIONS_URL: '172.17.0.1'
-      RESERVATIONS_PORT: '3003'
-      RESERVATIONS_ENTRY: 'reservations'
+      ALTERNATIVES_ENTRY: 'alternatives',
+      SAVEALTER_ENTRY: 'create'
+
       
       # Register
       USERS_URL: '34.69.73.192'
       USERS_PORT: '3002'
       USERS_ENTRY: 'users'
-
+      USERS_ENTRYA: 'auth'
+      
       # Services 
       SERVICES_URL: '34.69.73.192'
       SERVICES_PORT: '3004'

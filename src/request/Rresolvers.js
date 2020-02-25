@@ -1,7 +1,7 @@
 import { generalRequest, getRequest } from '../utilities';
-import { url, port, entryPoint } from './Rserver';
+import { url, entryPoint } from './Rserver';
 
-const URL = `http://${url}:${port}/${entryPoint}`;
+const URL = `${url}/${entryPoint}`;
 
 const Rresolvers = {
 	Query: {

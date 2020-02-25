@@ -18,7 +18,12 @@ input AlternativeInput {
     duration: String
     origin: String
     destination: String
-}`;
+}
+input RouteInput{
+    origin: String!
+    destination: String!
+}
+`;
 
 export const alternativesQueries = `
     getAlternatives: [Alternative]!
@@ -26,6 +31,7 @@ export const alternativesQueries = `
 `;
 
 export const alternativesMutations = `
+    saveAlternative(Route: RouteInput): Alternative!
     createAlternative(Alternative: AlternativeInput!): Alternative!
     deleteAlternative(id: Int!): answer3!
     updateAlternative(id: Int!, Alternative: AlternativeInput!): Alternative!

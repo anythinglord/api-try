@@ -13,13 +13,13 @@ import { mergeSchemas } from './utilities';
 		usersTypeDef
 	} from './register/RtypeDefs';
 
-	//Lddap
+	/*//Lddap
 	import {
 		ldMutations,
 		ldQueries,
 		ldTypeDef,
 		//ldTypeDef2
-	} from './ldap/LDtypeDefs';
+	} from './ldap/LDtypeDefs';*/
 
 	
 	// Service
@@ -62,7 +62,7 @@ import { mergeSchemas } from './utilities';
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		ldTypeDef,
+		//ldTypeDef,
 		usersTypeDef,
 		servicesTypeDef,
 		alternativesTypeDef,
@@ -70,14 +70,14 @@ const mergedTypeDefs = mergeSchemas(
 		//ldTypeDef2
 	],
 	[
-		ldQueries,
+		//ldQueries,
 		usersQueries,
 		servicesQueries,
 		alternativesQueries,
 		requestsQueries,
 	],
 	[
-		ldMutations,
+		//ldMutations,
 		usersMutations,
 		servicesMutations,
 		alternativesMutations,
@@ -90,7 +90,7 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		ldResolvers,
+		//ldResolvers,
 		usersResolvers,
 		servicesResolvers,
 		alternativesResolvers,
