@@ -12,8 +12,8 @@ const Aresolvers = {
 			generalRequest(`${URL}/${id}`, 'GET'),
 	},
 	Mutation: {
-		saveAlternative:(_, { Alternative }) =>
-			generalRequest(`${URLSave}`, 'POST', Alternative),
+		saveAlternative:(_, { Route }) =>
+			generalRequest(`${URLSave}`, 'POST', Route),
 		createAlternative: (_, { Alternative }) =>
 			generalRequest(`${URL}`, 'POST', Alternative),
 		updateAlternative: (_, { id, Alternative }) =>
