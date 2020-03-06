@@ -11,9 +11,16 @@ const Rresolvers = {
 		userById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
 		userByEmail: async (_, { email }) =>{
+			let data = {
+				"id": -1,"nameE" :'',
+				"email" :'',"rol" : '',
+				"passw": '',"nit": '',
+			}
+
 			let res = await getRequest(URL, email)
-			console.log("Res: ", res.name)
-			return res
+			if (res.name === 'RequestError'){
+				return data
+			}else{ return res }
 		},
 			
 	},
