@@ -11,8 +11,8 @@ const Rresolvers = {
 		userById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
 		userByEmail: (_, { email }) =>{
-			let res = getRequest(URL, email)
-			console.log(res)
+			let res = await getRequest(URL, email)
+			console.log("Res: ",res)
 			return res
 		},
 			
