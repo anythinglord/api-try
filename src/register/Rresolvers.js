@@ -12,7 +12,7 @@ const Rresolvers = {
 			generalRequest(`${URL}/${id}`, 'GET'),
 		userByEmail: async (_, { email }) =>{
 			let res = await getRequest(URL, email)
-			console.log("Res: ",res.response)
+			console.log("Res: ", res)
 			return res
 		},
 			
