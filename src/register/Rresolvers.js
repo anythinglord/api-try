@@ -10,8 +10,12 @@ const Rresolvers = {
 			getRequest(URL, ''),
 		userById: (_, { id }) =>
 			generalRequest(`${URL}/${id}`, 'GET'),
-		userByEmail: (_, { email }) =>
-			getRequest(URL, email),
+		userByEmail: (_, { email }) =>{
+			let res = getRequest(URL, email)
+			console.log(res)
+			return res
+		},
+			
 	},
 	Mutation: {
 		authUser: async (_, { credentials }) => {
